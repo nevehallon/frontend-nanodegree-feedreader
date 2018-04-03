@@ -7,7 +7,7 @@ jasmine testing framework to create a series of test suites for the efficiency o
 ## Getting Started
 * To load the feed reader app with the jasmine specsheet simply clone this repository or create a pull request. Get more information about pull requests [here](https://help.github.com/articles/creating-a-pull-request/).
 * If you aren't comfortable with either of these, another option would be to simply download the zip file.
-* Download or fork the application from [here.](https://github.com/nevehallon/frontend-nanodegree-feedreader.git)
+* Download a zip file of the application [here.](https://github.com/nevehallon/frontend-nanodegree-feedreader/archive/master.zip)
 * Select and open the index.html file to start the application.
 
 ## Requirement
