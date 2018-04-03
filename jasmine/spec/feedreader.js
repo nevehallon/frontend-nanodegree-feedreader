@@ -122,6 +122,7 @@ $(function() {
     it('content is changing', function(done) {
       setTimeout(function() {
         expect($('.header-title').text()).not.toBe("Udacity Blog");
+        expect($('.feed').length).not.toBe(0);
         done();
       }, 9000);
     });
