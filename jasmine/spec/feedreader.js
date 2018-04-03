@@ -80,15 +80,8 @@ $(function() {
   /* A test suite named "Initial Entries" */
   describe('Initial Entries', function() {
 
-    let container = $('.feed'),
-      entriesLen;
-
     beforeEach(function(done) {
-      loadFeed($('.feed-list a').data('id'), function() {
-
-        entriesLen = container.children().length;
-        done();
-      });
+      loadFeed(0, done);
     });
 
     /* A test that ensures when the loadFeed
@@ -98,21 +91,21 @@ $(function() {
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
     it('are loading', function(done) {
-      expect(entriesLen).not.toBe(0);
+      expect(($('.entry').length) > 0).toBe(true);
       done();
     });
   });
 
   /* A test suite named "New Feed Selection" */
   describe('New Feed Selection', function() {
-
-    let originalTimeout;
-
+    let firstFeed;
     beforeEach(function(done) {
-      originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-      jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-      $(".feed-list a:contains('Linear')").click();
-      done();
+      loadFeed(0, function() { // firstFeed is first loaded here and that compared with the other one
+        firstFeed = $(".feed").html();
+        loadFeed(1, function() {
+          done();
+        });
+      });
     });
 
     /* A test that ensures when a new feed is loaded
@@ -120,15 +113,9 @@ $(function() {
      * Remember, loadFeed() is asynchronous.
      */
     it('content is changing', function(done) {
-      setTimeout(function() {
-        expect($('.header-title').text()).not.toBe("Udacity Blog");
-        expect($('.feed').length).not.toBe(0);
-        done();
-      }, 9000);
+      expect(firstFeed).not.toBe($(".feed").html());
+      done();
     });
 
-    afterEach(function() {
-      jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
-    });
   });
 }());
