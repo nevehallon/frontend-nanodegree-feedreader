@@ -2,7 +2,7 @@
 
 ## About This Project
 *This project is based on the concept of test-driven JavaScript programming. Here, I have used the starter code given by Udacity and the
-jasmine testing framework to create a series of test suites for the efficiency of my application.*
+jasmine testing framework to create a series of test suites for the long-term efficiency of my application.*
 
 ## Getting it to work in your browser
 
