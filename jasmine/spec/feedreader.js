@@ -34,7 +34,7 @@ $(function() {
     it('and URLs are defined', function() {
       for (let i = 0; i < allFeeds.length; i++) {
         expect(allFeeds[i].url).toBeDefined();
-        expect(allFeeds[i].url).not.toBe(0);
+        expect(allFeeds[i].url.length).not.toBe(0);
       }
     });
 
@@ -46,7 +46,7 @@ $(function() {
     it('and names are defined', function() {
       for (let i = 0; i < allFeeds.length; i++) {
         expect(allFeeds[i].name).toBeDefined();
-        expect(allFeeds[i].name).not.toBe(0);
+        expect(allFeeds[i].name.length).not.toBe(0);
       }
     });
   });
@@ -91,7 +91,7 @@ $(function() {
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
     it('are loading', function(done) {
-      expect(($('.entry').length) > 0).toBe(true);
+      expect(($('.feed .entry').length) > 0).toBe(true);
       done();
     });
   });
@@ -112,9 +112,8 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
-    it('content is changing', function(done) {
+    it('content is changing', function() {
       expect(firstFeed).not.toBe($(".feed").html());
-      done();
     });
 
   });
